@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0126)file:///Users/liampankrath/Library/Messages/Attachments/43/03/D45EA0C6-78E9-40FA-93E2-5366324E3CC9/MultiPage_TradersQuest.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trader's Quest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        main {
+            padding: 20px;
+        }
+        .task, .challenge {
+            margin: 10px 0;
+        }
+        .task input[type="checkbox"], .challenge input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .points {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .progress-bar-fill {
+            height: 20px;
+            background-color: #4CAF50;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .rank {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trader's Quest</h1>
+        <p>Level up as a trader by completing tasks and earning points!</p>
+    </header>
+    <nav>
+        <a href="file:///Users/liampankrath/Library/Messages/Attachments/43/03/D45EA0C6-78E9-40FA-93E2-5366324E3CC9/Day1.html">Day 1</a>
+        <a href="file:///Users/liampankrath/Library/Messages/Attachments/43/03/D45EA0C6-78E9-40FA-93E2-5366324E3CC9/Day2.html">Day 2</a>
+        <a href="file:///Users/liampankrath/Library/Messages/Attachments/43/03/D45EA0C6-78E9-40FA-93E2-5366324E3CC9/Day3.html">Day 3</a>
+        <a href="file:///Users/liampankrath/Library/Messages/Attachments/43/03/D45EA0C6-78E9-40FA-93E2-5366324E3CC9/Day4.html">Day 4</a>
+        <a href="file:///Users/liampankrath/Library/Messages/Attachments/43/03/D45EA0C6-78E9-40FA-93E2-5366324E3CC9/Day5.html">Day 5</a>
+        <a href="file:///Users/liampankrath/Library/Messages/Attachments/43/03/D45EA0C6-78E9-40FA-93E2-5366324E3CC9/Overall.html">Overall</a>
+    </nav>
+    <main>
+        <h2>Daily Tasks</h2>
+        <div id="tasks">
+            <div class="task">
+                <input type="checkbox" id="task1" onclick="updatePoints(5)">
+                <label for="task1">Pre-Market Analysis (+5 points)</label>
+            </div>
+            <div class="task">
+                <input type="checkbox" id="task2" onclick="updatePoints(5)">
+                <label for="task2">Execute with Discipline (+5 points)</label>
+            </div>
+            <div class="task">
+                <input type="checkbox" id="task3" onclick="updatePoints(5)">
+                <label for="task3">Risk Management (+5 points)</label>
+            </div>
+            <div class="task">
+                <input type="checkbox" id="task4" onclick="updatePoints(5)">
+                <label for="task4">End-of-Day Review (+5 points)</label>
+            </div>
+            <div class="task">
+                <input type="checkbox" id="task5" onclick="updatePoints(5)">
+                <label for="task5">Consistency Bonus (+5 points)</label>
+            </div>
+        </div>
+
+        <h2>Your Points</h2>
+        <p class="points" id="pointsDisplay">0</p>
+
+        <h2>Rank</h2>
+        <p class="rank" id="rankDisplay">Apprentice Trader</p>
+
+        <h2>Progress</h2>
+        <div class="progress-bar">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+    </main>
+    <footer>
+        <p>Trader's Quest © 2025</p>
+    </footer>
+
+    <script>
+        let totalPoints = 0;
+        const maxPoints = 300; // Adjusted maximum points for the week
+
+        function updatePoints(points) {
+            totalPoints += points;
+            document.getElementById("pointsDisplay").innerText = totalPoints;
+
+            const progressPercentage = (totalPoints / maxPoints) * 100;
+            document.getElementById("progressBarFill").style.width = progressPercentage + "%";
+
+            updateRank();
+
+            if (totalPoints >= maxPoints) {
+                alert("Congratulations! You've reached the maximum points!");
+            }
+        }
+
+        function updateRank() {
+            let rank = "Apprentice Trader";
+            if (totalPoints >= 100 && totalPoints < 150) rank = "Disciplined Trader";
+            else if (totalPoints >= 150 && totalPoints < 250) rank = "Strategic Trader";
+            else if (totalPoints >= 250) rank = "Master Trader";
+
+            document.getElementById("rankDisplay").innerText = rank;
+        }
+    </script>
+
+
+</body></html>
